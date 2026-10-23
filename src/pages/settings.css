@@ -1,3 +1,20 @@
+/* Translucent inner surfaces reveal the chrome scene behind the app. */
+.settings-section,
+.settings-connection,
+.settings-privacy-card {
+  background: linear-gradient(
+    145deg,
+    rgba(245, 248, 255, 0.075),
+    rgba(245, 248, 255, 0.018)
+  );
+  border: 1px solid var(--border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 18px 45px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(24px) saturate(125%);
+  -webkit-backdrop-filter: blur(24px) saturate(125%);
+}
+
 .settings-page {
   max-width: 1150px;
   margin: 0 auto;
@@ -21,7 +38,7 @@
   color: var(--accent);
 }
 .settings-header > p {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.7;
 }
 .settings-layout {
@@ -54,7 +71,7 @@
   border: 1px solid var(--border);
   border-radius: 11px;
   color: var(--accent);
-  background: #b8d8ae07;
+  background: #dde8ff07;
   flex-shrink: 0;
 }
 .settings-section-heading h2 {
@@ -65,7 +82,7 @@
 }
 .settings-section-heading p {
   color: var(--muted);
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.5;
   margin: 0;
 }
@@ -100,11 +117,11 @@
   position: relative;
 }
 .settings-theme-option.is-selected {
-  border-color: #b8d8ae85;
-  background: #b8d8ae05;
+  border-color: #dde8ff85;
+  background: #dde8ff05;
 }
 .settings-theme-option:hover {
-  border-color: #b8d8ae55;
+  border-color: #dde8ff55;
 }
 .settings-theme-option > input {
   position: absolute;
@@ -119,7 +136,7 @@
 .settings-theme-preview {
   height: 100px;
   border-radius: 6px;
-  background: #151d20;
+  background: #1b1b1e;
   padding: 13px 12px;
   display: flex;
   gap: 12px;
@@ -142,7 +159,7 @@
 }
 .settings-preview-sidebar i:first-child {
   width: 75%;
-  background: #b8d8ae80;
+  background: #dde8ff80;
   margin-bottom: 5px;
 }
 .settings-preview-content {
@@ -155,7 +172,7 @@
   width: 100%;
   height: 35px;
   border-radius: 4px;
-  background: linear-gradient(120deg, #3a5546, #313f47 70%, #424b58);
+  background: linear-gradient(120deg, #4b4d54, #3a3c41 70%, #474950);
 }
 .settings-preview-content > span {
   display: flex;
@@ -169,10 +186,10 @@
   background: #ffffff0f;
 }
 .settings-preview-content > span > i:nth-child(2) {
-  background: #b8d8ae1f;
+  background: #dde8ff1f;
 }
 .settings-preview-light {
-  background: #eceee8;
+  background: #e8edf6;
 }
 .settings-preview-light .settings-preview-sidebar {
   border-right-color: #0000000a;
@@ -181,16 +198,16 @@
   background: #0000001c;
 }
 .settings-preview-light .settings-preview-sidebar i:first-child {
-  background: #526b4eaa;
+  background: #60636baa;
 }
 .settings-preview-light .settings-preview-content > i {
-  background: linear-gradient(120deg, #becfb6, #c6d2cc 70%, #b5c1cf);
+  background: linear-gradient(120deg, #c3c8d9, #c8cddf 70%, #b9bece);
 }
 .settings-preview-light .settings-preview-content > span > i {
   background: #0000000b;
 }
 .settings-preview-light .settings-preview-content > span > i:nth-child(2) {
-  background: #8ba18335;
+  background: #9599a635;
 }
 .settings-theme-caption {
   display: flex;
@@ -204,12 +221,12 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 6px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
 }
 .settings-theme-caption small {
   color: var(--muted);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 400;
   margin-left: 1px;
 }
@@ -225,7 +242,7 @@
 .is-selected .settings-radio-indicator {
   background: var(--accent);
   border-color: var(--accent);
-  color: #263027;
+  color: var(--accent-dark);
 }
 .settings-preference {
   display: flex;
@@ -244,14 +261,14 @@
 }
 .settings-preference h3,
 .settings-export-row h3 {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   margin: 0 0 7px;
 }
 .settings-preference p,
 .settings-export-row p {
   color: var(--muted);
-  font-size: 10px;
+  font-size: 11px;
   margin: 0;
   line-height: 1.7;
 }
@@ -283,7 +300,7 @@
   border-color: var(--accent);
 }
 .settings-switch.is-on > span {
-  background: #29352c;
+  background: #303136;
   transform: translateX(16px);
 }
 .settings-library-stats {
@@ -293,7 +310,7 @@
   border-radius: 10px;
   margin-bottom: 24px;
   padding: 18px 0;
-  background: #00000004;
+  background: var(--surface);
 }
 .settings-library-stats > div {
   display: flex;
@@ -312,7 +329,7 @@
   line-height: 1.1;
 }
 .settings-library-stats span {
-  font-size: 9px;
+  font-size: 10px;
   color: var(--muted);
 }
 .settings-export-row {
@@ -322,14 +339,14 @@
   gap: 25px;
 }
 .settings-export-row .button {
-  font-size: 10px;
+  font-size: 11px;
   padding: 10px 13px;
   flex-shrink: 0;
 }
 .settings-storage-note {
   display: flex;
   gap: 8px;
-  font-size: 9px;
+  font-size: 10px;
   color: var(--muted);
   line-height: 1.7;
   margin: 23px 0 0;
@@ -342,7 +359,7 @@
   margin-top: 1px;
 }
 .settings-storage-error {
-  font-size: 11px;
+  font-size: 12px;
   color: #e99898;
   line-height: 1.65;
   margin: 15px 0 0;
@@ -362,7 +379,7 @@
   align-items: center;
   justify-content: center;
   gap: 7px;
-  font-size: 8px;
+  font-size: 9px;
   letter-spacing: 0.13em;
   font-weight: 500;
   color: var(--muted);
@@ -374,16 +391,16 @@
   place-items: center;
   margin: 25px auto 20px;
   border-radius: 100%;
-  background: radial-gradient(ellipse, #cdb8db0f, transparent 70%);
-  border: 1px solid #cdb8db25;
-  color: #cdb8db;
-  box-shadow: 0 0 0 8px #cdb8db03;
+  background: radial-gradient(ellipse, #b8bdcd0f, transparent 70%);
+  border: 1px solid #b8bdcd25;
+  color: var(--text);
+  box-shadow: 0 0 0 8px #b8bdcd03;
 }
 .settings-connection-symbol.is-live {
-  border-color: #b8d8ae35;
+  border-color: #dde8ff35;
   color: var(--accent);
-  background: #b8d8ae0a;
-  box-shadow: 0 0 0 8px #b8d8ae03;
+  background: #dde8ff0a;
+  box-shadow: 0 0 0 8px #dde8ff03;
 }
 .settings-connection h2 {
   font-size: 17px;
@@ -393,7 +410,7 @@
   margin: 0 0 12px;
 }
 .settings-connection > p {
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.9;
   color: var(--muted);
   margin: 0;
@@ -405,10 +422,10 @@
   margin: 19px auto;
   padding: 7px 10px;
   border-radius: 20px;
-  font-size: 9px;
-  color: #cdb8db;
-  background: #cdb8db0c;
-  border: 1px solid #cdb8db22;
+  font-size: 10px;
+  color: var(--text);
+  background: #b8bdcd0c;
+  border: 1px solid #b8bdcd22;
 }
 .settings-status-badge > i {
   height: 4px;
@@ -418,15 +435,15 @@
 }
 .settings-status-badge.is-live {
   color: var(--accent);
-  background: #b8d8ae0c;
-  border-color: #b8d8ae25;
+  background: #dde8ff0c;
+  border-color: #dde8ff25;
 }
 .settings-connection .settings-hosting-note {
   display: flex;
   align-items: flex-start;
   gap: 6px;
   text-align: left;
-  font-size: 9px;
+  font-size: 10px;
   line-height: 1.7;
   border-top: 1px solid var(--border);
   padding-top: 15px;
@@ -445,7 +462,7 @@
   width: 100%;
   background: none;
   cursor: pointer;
-  font-size: 9px;
+  font-size: 10px;
   padding: 17px 0 0;
 }
 .settings-recheck:hover {
@@ -464,10 +481,10 @@
   }
 }
 .settings-privacy-card {
-  border: 1px solid #b8d8ae1a;
+  border: 1px solid #dde8ff1a;
   border-radius: 17px;
   padding: 23px;
-  background: linear-gradient(150deg, #b8d8ae08, #b8d8ae02);
+  background: linear-gradient(150deg, #dde8ff08, #dde8ff02);
 }
 .settings-privacy-card > svg {
   color: var(--accent);
@@ -481,13 +498,13 @@
   margin: 0 0 12px;
 }
 .settings-privacy-card p {
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.8;
   color: var(--muted);
   margin: 0 0 21px;
 }
 .settings-privacy-card a {
-  font-size: 9px;
+  font-size: 10px;
   color: var(--accent);
   text-decoration: none;
   display: flex;
@@ -499,7 +516,7 @@
   text-decoration: underline;
 }
 .settings-saved-note {
-  font-size: 9px;
+  font-size: 10px;
   color: var(--muted);
   display: flex;
   align-items: center;
@@ -518,7 +535,7 @@
   padding-top: 22px;
   border-top: 1px solid var(--border);
   color: var(--muted);
-  font-size: 9px;
+  font-size: 10px;
 }
 .settings-footer a {
   color: var(--muted);
@@ -626,7 +643,7 @@
     height: 19px;
   }
   .settings-theme-caption > span:first-child {
-    font-size: 10px;
+    font-size: 11px;
     gap: 4px;
   }
   .settings-theme-caption > span:first-child > svg {
@@ -636,7 +653,7 @@
     padding: 17px 0;
   }
   .settings-library-stats span {
-    font-size: 8px;
+    font-size: 9px;
   }
   .settings-theme-options {
     gap: 11px;

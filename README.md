@@ -1,6 +1,10 @@
 # PokeTube Glass
 
-An original, responsive glassmorphism interface for discovering and watching videos through the public Invidious API contract. Built with React, TypeScript, Vite and Express. The design uses translucent surfaces, a muted sage accent, local imagery, light and dark themes, and mobile navigation.
+An original, responsive glassmorphism interface for discovering and watching videos through the public Invidious API contract. Built with React, TypeScript, Vite and Express. The design uses a floating smoked-glass frame, a locally bundled chrome-ring backdrop, reflective borders, frosted surfaces, silver controls, light and dark themes, and mobile navigation.
+
+![PokeTube’s redesigned glass interface](docs/screenshots/glass-desktop.png)
+
+[View the mobile design](docs/screenshots/glass-mobile.png).
 
 This project started from an empty repository. It is an independent implementation: no application code, logos, screenshots or other assets were copied from PokeTube. The original Poke project informed the video workflows and API research. Its source is [available here](https://github.com/ashleyirispuppy143/poke).
 

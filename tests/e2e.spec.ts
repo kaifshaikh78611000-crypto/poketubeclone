@@ -45,12 +45,12 @@ test("home renders real local images and categories return to the full catalogue
   await page.goto("/home");
   await expect(page.locator(".video-card")).toHaveCount(9);
   await expect(
-    page.getByRole("heading", { name: /A world of wonder/ }),
+    page.getByRole("heading", { name: /Stay curious/ }),
   ).toBeVisible();
   await expect
     .poll(() =>
       page
-        .locator(".hero-image, .video-cover img")
+        .locator("img.hero-feature-image, .video-cover img")
         .evaluateAll((images) =>
           images.every(
             (image) =>
@@ -276,7 +276,7 @@ test("mobile discovery, watch and navigation stay within the viewport", async ({
   await expect
     .poll(() =>
       page
-        .locator(".hero-image")
+        .locator("img.hero-feature-image")
         .evaluate((image) => (image as HTMLImageElement).naturalWidth),
     )
     .toBeGreaterThan(0);

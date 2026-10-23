@@ -1,3 +1,23 @@
+/* Reflective smoked-glass surfaces retain the background scene beneath each tool. */
+.tools-page .tool-tile,
+.tools-page .weather-welcome,
+.tools-page .weather-now,
+.tools-page .weather-details,
+.tools-page .weather-day,
+.tools-page .map-location,
+.tools-page .map-canvas,
+.tools-page .calendar-card,
+.tools-page .calendar-agenda-card,
+.tools-page .calendar-upcoming-event {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(26px) saturate(130%);
+  -webkit-backdrop-filter: blur(26px) saturate(130%);
+  box-shadow:
+    0 18px 55px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
 .tools-page {
   padding-bottom: 18px;
 }
@@ -30,7 +50,7 @@
   min-width: 0;
 }
 .tool-search > svg {
-  color: #9aaf8c;
+  color: var(--muted);
 }
 .tool-search input {
   width: 100%;
@@ -68,15 +88,15 @@
 }
 .tool-unit-toggle .active {
   color: var(--accent);
-  background: #c2f58a15;
+  background: rgba(222, 232, 255, 0.11);
 }
 .tool-error {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  border: 1px solid #d5a07b33;
-  background: #d5a07b0b;
-  color: #e0b89a;
+  border: 1px solid rgba(234, 184, 175, 0.28);
+  background: rgba(234, 184, 175, 0.055);
+  color: #ecc9c2;
   border-radius: 13px;
   padding: 17px;
   margin: 18px 0;
@@ -119,13 +139,13 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 4px 5px;
-  font-size: 9px;
+  font-size: 11px;
   color: var(--muted);
   line-height: 1.9;
   margin-top: 23px;
 }
 .tool-provider a {
-  color: #b0c49f;
+  color: var(--accent);
   display: inline-flex;
   gap: 3px;
   align-items: center;
@@ -166,16 +186,28 @@
 }
 .tool-tile:hover {
   transform: translateY(-4px);
-  border-color: #c2f58a44;
+  border-color: rgba(235, 242, 255, 0.4);
 }
 .tool-tile-weather {
-  background: linear-gradient(145deg, #d1c8800e, #ffffff01);
+  background: linear-gradient(
+    145deg,
+    rgba(237, 243, 255, 0.12),
+    rgba(235, 241, 255, 0.025)
+  );
 }
 .tool-tile-map {
-  background: linear-gradient(145deg, #a0cfb912, #ffffff01);
+  background: linear-gradient(
+    145deg,
+    rgba(175, 204, 242, 0.1),
+    rgba(235, 241, 255, 0.025)
+  );
 }
 .tool-tile-calendar {
-  background: linear-gradient(145deg, #bdb2d312, #ffffff01);
+  background: linear-gradient(
+    145deg,
+    rgba(207, 199, 237, 0.11),
+    rgba(235, 241, 255, 0.025)
+  );
 }
 .tool-tile-icon {
   height: 62px;
@@ -184,23 +216,23 @@
   align-items: center;
   justify-content: center;
   border-radius: 18px;
-  color: #dcdaa9;
-  background: #dcdaa910;
-  border: 1px solid #dcdaa91c;
+  color: var(--accent);
+  background: rgba(230, 240, 255, 0.09);
+  border: 1px solid rgba(230, 240, 255, 0.2);
   margin-bottom: 28px;
 }
 .tool-tile-map .tool-tile-icon {
-  color: #a8d8c4;
-  background: #a8d8c410;
-  border-color: #a8d8c41c;
+  color: var(--accent);
+  background: rgba(200, 218, 248, 0.09);
+  border-color: rgba(200, 218, 248, 0.2);
 }
 .tool-tile-calendar .tool-tile-icon {
-  color: #d1bfea;
-  background: #d1bfea10;
-  border-color: #d1bfea1c;
+  color: var(--accent);
+  background: rgba(224, 218, 248, 0.09);
+  border-color: rgba(224, 218, 248, 0.2);
 }
 .tool-tile .eyebrow {
-  font-size: 7px;
+  font-size: 9px;
   letter-spacing: 1.5px;
 }
 .tool-tile h2 {
@@ -219,7 +251,7 @@
   align-items: center;
   gap: 12px;
   font-size: 10px;
-  color: #b4cc9f;
+  color: var(--text);
   margin-top: auto;
   padding-top: 26px;
 }
@@ -240,7 +272,7 @@
   line-height: 1.9;
 }
 .tool-privacy-note svg {
-  color: #94ab82;
+  color: var(--accent);
   margin-top: 3px;
 }
 .weather-welcome {
@@ -256,7 +288,11 @@
   overflow: hidden;
   padding: 42px 22px;
   background:
-    radial-gradient(ellipse at 50% 15%, #d7d3960b, transparent 55%),
+    radial-gradient(
+      ellipse at 50% 15%,
+      rgba(222, 233, 255, 0.08),
+      transparent 55%
+    ),
     var(--surface);
 }
 .weather-welcome-sun {
@@ -266,14 +302,14 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #ddd7a007;
-  color: #d3d09b;
-  border: 1px solid #d7d39615;
+  background: rgba(235, 241, 255, 0.06);
+  color: var(--accent);
+  border: 1px solid rgba(235, 241, 255, 0.2);
   margin-bottom: 26px;
-  box-shadow: 0 0 70px #d7d39608;
+  box-shadow: 0 0 70px rgba(204, 225, 255, 0.13);
 }
 .weather-welcome .eyebrow {
-  font-size: 7px;
+  font-size: 9px;
   letter-spacing: 1.5px;
 }
 .weather-welcome h2 {
@@ -309,13 +345,29 @@
   padding: 29px 31px 28px;
   border-radius: 19px;
   background:
-    radial-gradient(ellipse at 100% 10%, #e3cf731c, transparent 70%),
-    linear-gradient(135deg, #88874613, #fff01);
+    radial-gradient(
+      ellipse at 100% 10%,
+      rgba(216, 229, 255, 0.16),
+      transparent 70%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(221, 232, 250, 0.07),
+      rgba(235, 241, 255, 0.025)
+    );
 }
 .weather-night {
   background:
-    radial-gradient(ellipse at 100% 10%, #8c9bda1c, transparent 70%),
-    linear-gradient(135deg, #8c9bda09, #fff01);
+    radial-gradient(
+      ellipse at 100% 10%,
+      rgba(157, 180, 238, 0.16),
+      transparent 70%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(180, 199, 242, 0.07),
+      rgba(235, 241, 255, 0.025)
+    );
 }
 .weather-now-top {
   display: flex;
@@ -324,7 +376,7 @@
   gap: 20px;
 }
 .weather-now .eyebrow {
-  font-size: 7px;
+  font-size: 9px;
   letter-spacing: 1.5px;
 }
 .weather-now h2 {
@@ -339,12 +391,12 @@
   max-width: 270px;
 }
 .weather-main-icon {
-  color: #d9d398;
-  filter: drop-shadow(0 0 18px #d9d39816);
+  color: var(--accent);
+  filter: drop-shadow(0 0 18px rgba(209, 229, 255, 0.15));
   padding-right: 9px;
 }
 .weather-night .weather-main-icon {
-  color: #c6cce6;
+  color: var(--accent);
 }
 .weather-main-icon svg {
   stroke-width: 1.15;
@@ -362,7 +414,7 @@
   display: inline-block;
   padding-top: 15px;
   margin-left: 9px;
-  color: #c1c2b6;
+  color: var(--muted);
   letter-spacing: -1px;
 }
 .weather-now h3 {
@@ -381,7 +433,7 @@
   border-radius: 19px;
 }
 .weather-details > .eyebrow {
-  font-size: 7px;
+  font-size: 9px;
   letter-spacing: 1.5px;
 }
 .weather-detail-grid {
@@ -410,7 +462,7 @@
   padding-bottom: 0;
 }
 .weather-detail-grid svg {
-  color: #9dbb88;
+  color: var(--accent);
   stroke-width: 1.4;
 }
 .weather-detail-grid span {
@@ -442,7 +494,7 @@
   font-size: 10px;
 }
 .weather-week .eyebrow {
-  font-size: 7px;
+  font-size: 9px;
   letter-spacing: 1.5px;
 }
 .weather-day-grid {
@@ -459,15 +511,19 @@
   align-items: center;
 }
 .weather-day-today {
-  background: linear-gradient(150deg, #c2f58a10, #ffffff01);
-  border-color: #c2f58a26;
+  background: linear-gradient(
+    150deg,
+    rgba(222, 234, 255, 0.12),
+    rgba(235, 241, 255, 0.025)
+  );
+  border-color: rgba(222, 234, 255, 0.3);
 }
 .weather-day > strong {
   font-size: 11px;
   font-weight: 650;
 }
 .weather-day-date {
-  font-size: 8px;
+  font-size: 10px;
   color: var(--muted);
   margin-top: 6px;
 }
@@ -476,7 +532,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #d3d5a6;
+  color: var(--accent);
 }
 .weather-day-icon svg {
   stroke-width: 1.3;
@@ -490,7 +546,7 @@
   margin-left: 3px;
 }
 .weather-day small {
-  font-size: 7px;
+  font-size: 9px;
   color: var(--muted);
   line-height: 1.7;
   min-height: 24px;
@@ -510,9 +566,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #bbd7a8;
+  color: var(--accent);
   border-radius: 12px;
-  background: #bbd7a810;
+  background: rgba(216, 230, 255, 0.1);
   flex-shrink: 0;
 }
 .map-location > div {
@@ -530,13 +586,13 @@
   color: var(--muted);
 }
 .map-location small {
-  font-size: 9px;
-  color: #a4b897;
+  font-size: 11px;
+  color: var(--muted);
   display: block;
   margin-top: 4px;
 }
 .map-location .button {
-  font-size: 9px;
+  font-size: 11px;
   padding: 10px 12px;
   min-height: 34px;
 }
@@ -552,7 +608,7 @@
   height: 480px;
   border: 0;
   display: block;
-  background: #e8e7df;
+  background: #e9ecf2;
 }
 .map-consent {
   min-height: 480px;
@@ -565,23 +621,27 @@
   flex-direction: column;
   text-align: center;
   padding: 30px 25px;
-  background: radial-gradient(ellipse at center, #85ad7b08, transparent 65%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(216, 230, 255, 0.07),
+    transparent 65%
+  );
 }
 .map-consent-icon {
   height: 85px;
   width: 85px;
   border-radius: 23px;
-  border: 1px solid #b3cda320;
-  background: #b3cda307;
+  border: 1px solid rgba(224, 235, 255, 0.2);
+  background: rgba(224, 235, 255, 0.075);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #aec39b;
+  color: var(--accent);
   margin-bottom: 27px;
   backdrop-filter: blur(8px);
 }
 .map-consent .eyebrow {
-  font-size: 7px;
+  font-size: 9px;
   letter-spacing: 1.6px;
 }
 .map-consent h2 {
@@ -604,7 +664,7 @@
   position: absolute;
   width: 650px;
   height: 250px;
-  border: 1px solid #b3cda30b;
+  border: 1px solid rgba(224, 235, 255, 0.13);
   border-radius: 47%;
   transform: rotate(-32deg);
   z-index: -1;
@@ -633,9 +693,9 @@
 }
 .map-disable-wrap .button {
   font-size: 10px;
-  background: #152017dc;
-  border-color: #ffffff25;
-  color: #f3f6ed;
+  background: rgba(25, 29, 39, 0.78);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #f4f7ff;
   backdrop-filter: blur(10px);
   padding: 10px 12px;
   min-height: 34px;
@@ -650,7 +710,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  color: #b2c99f;
+  color: var(--accent);
   margin-left: 5px;
 }
 .calendar-layout {
@@ -671,7 +731,7 @@
   padding: 25px 24px;
 }
 .calendar-toolbar .eyebrow {
-  font-size: 6px;
+  font-size: 8px;
   letter-spacing: 1.5px;
 }
 .calendar-toolbar h2 {
@@ -690,7 +750,7 @@
   height: 32px;
 }
 .calendar-today {
-  font-size: 9px;
+  font-size: 11px;
   padding: 8px 11px;
   border-radius: 7px;
   border: 1px solid var(--border);
@@ -709,7 +769,7 @@
 }
 .calendar-weekdays span {
   text-align: center;
-  font-size: 9px;
+  font-size: 11px;
   color: var(--muted);
 }
 .calendar-days {
@@ -742,8 +802,8 @@
   background: var(--surface-hover);
 }
 .calendar-day.selected {
-  background: #c2f58a09;
-  box-shadow: inset 0 0 0 1px #c2f58a33;
+  background: rgba(222, 233, 255, 0.09);
+  box-shadow: inset 0 0 0 1px rgba(222, 233, 255, 0.3);
 }
 .calendar-date-number {
   height: 23px;
@@ -756,7 +816,7 @@
 }
 .calendar-day.is-today .calendar-date-number {
   background: var(--accent);
-  color: #1e3010;
+  color: var(--accent-dark);
   font-weight: 750;
 }
 .calendar-day.other-month .calendar-date-number {
@@ -771,7 +831,7 @@
 }
 .calendar-cell-event {
   display: block;
-  font-size: 6px;
+  font-size: 8px;
   background: color-mix(in srgb, var(--event-color) 10%, transparent);
   color: var(--event-color);
   border-radius: 3px;
@@ -793,18 +853,18 @@
   vertical-align: middle;
 }
 .calendar-cell-events small {
-  font-size: 6px;
+  font-size: 8px;
   color: var(--muted);
   padding-left: 3px;
 }
 .event-sage {
-  --event-color: #bfda98;
+  --event-color: #d2dfff;
 }
 .event-blue {
-  --event-color: #a3bee4;
+  --event-color: #92b6ec;
 }
 .event-rose {
-  --event-color: #d6a6b5;
+  --event-color: #d6a9c6;
 }
 .calendar-mobile-dots {
   display: none;
@@ -820,7 +880,7 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 7px;
+  font-size: 9px;
   color: var(--muted);
 }
 .calendar-legend i {
@@ -837,7 +897,7 @@
   padding: 24px 20px;
 }
 .calendar-agenda-card > .eyebrow {
-  font-size: 6px;
+  font-size: 8px;
   letter-spacing: 1.4px;
 }
 .calendar-agenda-card > h2 {
@@ -857,10 +917,10 @@
   gap: 13px;
   align-items: center;
   min-height: 75px;
-  color: #94a885;
+  color: var(--muted);
 }
 .calendar-no-events p {
-  font-size: 9px;
+  font-size: 11px;
   line-height: 1.9;
   color: var(--muted);
 }
@@ -890,13 +950,13 @@
   display: block;
 }
 .calendar-agenda-event span {
-  font-size: 9px;
+  font-size: 11px;
   color: var(--event-color);
   display: block;
   margin-top: 3px;
 }
 .calendar-agenda-event p {
-  font-size: 9px;
+  font-size: 11px;
   color: var(--muted);
   line-height: 1.8;
   margin-top: 7px;
@@ -909,7 +969,7 @@
   margin-right: -5px;
 }
 .calendar-agenda-event .icon-button:hover {
-  color: #d9acae;
+  color: #ecc0c6;
 }
 .calendar-event-form {
   display: flex;
@@ -928,30 +988,30 @@
   color: var(--accent);
 }
 .calendar-event-form label {
-  font-size: 9px;
-  color: #abb0a8;
+  font-size: 11px;
+  color: var(--muted);
   margin-bottom: 7px;
   line-height: 1.7;
 }
 .calendar-event-form label > span {
-  font-size: 8px;
+  font-size: 10px;
   color: var(--muted);
 }
 .calendar-event-form input,
 .calendar-event-form textarea {
   width: 100%;
-  background: #ffffff03;
+  background: rgba(235, 241, 255, 0.045);
   color: var(--text);
   border: 1px solid var(--border);
   padding: 10px 11px;
   border-radius: 7px;
-  font-size: 9px;
+  font-size: 11px;
   line-height: 1.7;
   resize: vertical;
 }
 .calendar-event-form input::placeholder,
 .calendar-event-form textarea::placeholder {
-  color: #747c74;
+  color: var(--muted);
 }
 .calendar-event-form > input {
   margin-bottom: 15px;
@@ -961,7 +1021,7 @@
   color-scheme: dark;
   min-width: 0;
   padding: 9px 7px;
-  font-size: 9px;
+  font-size: 11px;
 }
 .calendar-time-row {
   display: flex;
@@ -997,7 +1057,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #152013;
+  color: var(--accent-dark);
   border: 3px solid var(--bg);
   outline: 1px solid transparent;
 }
@@ -1012,7 +1072,7 @@
   width: 100%;
 }
 .calendar-save-notice {
-  font-size: 9px;
+  font-size: 11px;
   line-height: 1.7;
   margin-top: 11px;
   color: var(--accent);
@@ -1027,7 +1087,7 @@
   font-size: 23px;
 }
 .calendar-upcoming .eyebrow {
-  font-size: 7px;
+  font-size: 9px;
   letter-spacing: 1.5px;
 }
 .calendar-upcoming-grid {
@@ -1045,7 +1105,7 @@
   padding: 16px;
 }
 .calendar-upcoming-event > span {
-  font-size: 8px;
+  font-size: 10px;
   color: var(--event-color);
   text-transform: uppercase;
   text-align: center;
@@ -1073,7 +1133,7 @@
   text-overflow: ellipsis;
 }
 .calendar-upcoming-event small {
-  font-size: 9px;
+  font-size: 11px;
   color: var(--muted);
   display: block;
   margin-top: 4px;
@@ -1139,7 +1199,7 @@
     font-size: 10px;
   }
   .tool-tile-link {
-    font-size: 9px;
+    font-size: 11px;
   }
   .weather-main-grid {
     gap: 15px;
@@ -1174,7 +1234,7 @@
     padding: 17px 4px 15px;
   }
   .weather-day small {
-    font-size: 6px;
+    font-size: 8px;
   }
   .weather-week .section-heading h2 {
     font-size: 21px;
@@ -1327,7 +1387,7 @@
     font-size: 10px;
   }
   .tool-search .button {
-    font-size: 9px;
+    font-size: 11px;
     padding: 10px 12px;
   }
   .tool-search-row {
@@ -1379,13 +1439,13 @@
     font-size: 18px;
   }
   .weather-detail-grid small {
-    font-size: 8px;
+    font-size: 10px;
     display: block;
     margin: 4px 0 0;
     letter-spacing: 0;
   }
   .weather-detail-grid span {
-    font-size: 9px;
+    font-size: 11px;
   }
   .weather-day-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1395,10 +1455,10 @@
     padding: 19px 6px 16px;
   }
   .weather-day small {
-    font-size: 8px;
+    font-size: 10px;
   }
   .weather-day-date {
-    font-size: 9px;
+    font-size: 11px;
   }
   .weather-day > strong {
     font-size: 12px;
@@ -1416,13 +1476,13 @@
     font-size: 23px;
   }
   .weather-week .section-heading .muted {
-    font-size: 9px;
+    font-size: 11px;
   }
   .weather-welcome h2 {
     font-size: 27px;
   }
   .weather-welcome .eyebrow {
-    font-size: 6px;
+    font-size: 8px;
     letter-spacing: 1.3px;
   }
   .weather-welcome p {
@@ -1433,7 +1493,7 @@
     padding: 36px 18px;
   }
   .weather-city-examples .button {
-    font-size: 9px;
+    font-size: 11px;
     padding: 9px 11px;
   }
   .weather-city-examples {
@@ -1471,7 +1531,7 @@
     padding: 17px;
   }
   .calendar-legend span {
-    font-size: 7px;
+    font-size: 9px;
   }
   .calendar-date-number {
     font-size: 10px;
@@ -1496,21 +1556,21 @@
     font-size: 10px;
   }
   .map-consent .eyebrow {
-    font-size: 6px;
+    font-size: 8px;
     letter-spacing: 1.4px;
   }
   .map-consent .button {
     font-size: 10px;
   }
   .tool-provider {
-    font-size: 8px;
+    font-size: 10px;
   }
   .tool-error {
     font-size: 10px;
     padding: 15px;
   }
   .tool-back {
-    font-size: 9px;
+    font-size: 11px;
     margin-bottom: 23px;
   }
   .tool-loading {
@@ -1518,7 +1578,7 @@
     font-size: 11px;
   }
   .map-access-note {
-    font-size: 9px;
+    font-size: 11px;
   }
   .tools-hub-grid {
     margin-top: 27px;
@@ -1529,7 +1589,7 @@
     padding: 27px 25px;
   }
   .tool-tile .eyebrow {
-    font-size: 7px;
+    font-size: 9px;
   }
   .tool-tile h2 {
     font-size: 30px;
@@ -1539,12 +1599,12 @@
     max-width: 270px;
   }
   .tool-privacy-note {
-    font-size: 9px;
+    font-size: 11px;
   }
 }
 @media (max-width: 420px) {
   .tool-search input {
-    font-size: 9px;
+    font-size: 11px;
   }
   .tool-search .button {
     padding: 10px;
@@ -1604,10 +1664,10 @@
     padding: 16px 3px 13px;
   }
   .weather-day small {
-    font-size: 6px;
+    font-size: 8px;
   }
   .weather-day-date {
-    font-size: 7px;
+    font-size: 9px;
   }
   .weather-day > strong {
     font-size: 10px;
@@ -1619,10 +1679,10 @@
     font-size: 21px;
   }
   .weather-week .section-heading .muted {
-    font-size: 8px;
+    font-size: 10px;
   }
   .weather-week .eyebrow {
-    font-size: 6px;
+    font-size: 8px;
   }
   .calendar-toolbar {
     padding: 22px 15px;
@@ -1635,7 +1695,7 @@
     letter-spacing: 1.2px;
   }
   .calendar-today {
-    font-size: 8px;
+    font-size: 10px;
     padding: 7px 8px;
   }
   .calendar-toolbar .icon-button {
@@ -1659,7 +1719,7 @@
     padding: 14px 0;
   }
   .calendar-weekdays span {
-    font-size: 8px;
+    font-size: 10px;
   }
   .calendar-cell-events {
     display: none;
@@ -1682,7 +1742,7 @@
     padding: 16px 13px;
   }
   .calendar-legend span {
-    font-size: 6px;
+    font-size: 8px;
   }
   .calendar-agenda-card {
     padding: 23px 20px;
@@ -1697,7 +1757,7 @@
     gap: 10px;
   }
   .calendar-event-form label {
-    font-size: 9px;
+    font-size: 11px;
   }
   .calendar-event-form input,
   .calendar-event-form textarea,
@@ -1710,7 +1770,7 @@
     gap: 5px;
   }
   .calendar-save-notice {
-    font-size: 9px;
+    font-size: 11px;
   }
   .map-location {
     padding: 17px;
@@ -1720,7 +1780,7 @@
     font-size: 17px;
   }
   .map-location p {
-    font-size: 9px;
+    font-size: 11px;
   }
   .map-location > div {
     flex-basis: calc(100% - 57px);
@@ -1739,7 +1799,7 @@
     font-size: 23px;
   }
   .map-consent p {
-    font-size: 9px;
+    font-size: 11px;
   }
   .map-consent .eyebrow {
     font-size: 5px;
@@ -1750,7 +1810,7 @@
     width: 77px;
   }
   .map-access-note {
-    font-size: 8px;
+    font-size: 10px;
   }
   .tool-tile {
     padding: 27px 23px;
@@ -1762,7 +1822,7 @@
     font-size: 10px;
   }
   .tool-tile .eyebrow {
-    font-size: 6px;
+    font-size: 8px;
     letter-spacing: 1.4px;
   }
 }
@@ -1780,18 +1840,18 @@
   border: 1px solid var(--border);
   flex: 1;
   font-size: 11px;
-  color: #bcc8b2;
+  color: var(--text);
   background: var(--surface);
 }
 .tools-external-actions a > svg:first-child {
-  color: #9db58a;
+  color: var(--accent);
 }
 .tools-external-actions a > span {
   flex: 1;
 }
 .tools-external-actions small {
   display: block;
-  font-size: 9px;
+  font-size: 11px;
   color: var(--muted);
   line-height: 1.7;
   margin-top: 4px;
@@ -1800,16 +1860,20 @@
   color: var(--muted);
 }
 .tools-external-actions a:hover {
-  border-color: #c2f58a33;
+  border-color: rgba(222, 233, 255, 0.3);
   background: var(--surface-hover);
 }
 .tool-tile-translate {
-  background: linear-gradient(145deg, #a5b9d312, #ffffff01);
+  background: linear-gradient(
+    145deg,
+    rgba(194, 215, 248, 0.11),
+    rgba(235, 241, 255, 0.025)
+  );
 }
 .tool-tile-translate .tool-tile-icon {
-  color: #b6c9e1;
-  background: #b6c9e110;
-  border-color: #b6c9e11c;
+  color: var(--accent);
+  background: rgba(216, 230, 255, 0.1);
+  border-color: rgba(216, 230, 255, 0.2);
 }
 .tools-hub-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1836,7 +1900,7 @@
     font-size: 10px;
   }
   .tools-external-actions small {
-    font-size: 9px;
+    font-size: 11px;
   }
   .tools-external-actions a > svg:first-child {
     width: 15px;
@@ -1844,4 +1908,21 @@
   .tools-external-actions a > svg:last-child {
     width: 12px;
   }
+}
+
+[data-theme="light"] .calendar-event-form input[type="date"],
+[data-theme="light"] .calendar-event-form input[type="time"] {
+  color-scheme: light;
+}
+[data-theme="light"] .event-sage {
+  --event-color: #50658f;
+}
+[data-theme="light"] .event-blue {
+  --event-color: #3c68a5;
+}
+[data-theme="light"] .event-rose {
+  --event-color: #975b83;
+}
+[data-theme="light"] .tool-error {
+  color: #96544c;
 }

@@ -4,7 +4,6 @@ import {
   ArrowDown,
   ArrowRight,
   ArrowUpRight,
-  AudioLines,
   Check,
   ChevronDown,
   Flame,
@@ -17,6 +16,7 @@ import {
   Play,
   Radio,
   RotateCcw,
+  ShieldCheck,
   SlidersHorizontal,
   Sparkles,
   Telescope,
@@ -26,6 +26,7 @@ import { getFeed } from "../lib/api";
 import type { Video as VideoType } from "../lib/types";
 import VideoCard from "../components/VideoCard";
 import { useLibrary } from "../lib/store";
+import { formatDuration } from "../lib/utils";
 
 const categories = [
   { label: "All", icon: Sparkles },
@@ -107,54 +108,105 @@ export default function HomePage({ trending = false }: { trending?: boolean }) {
     document
       .getElementById("feed-start")
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const featured = videos[0];
   return (
     <div className="home-page page-enter">
       {!trending && category === "All" && (
         <section
-          className="discovery-hero"
+          className="discovery-hero glass"
           aria-label="Discover your next favorite video"
         >
-          <img
-            src="/hero.jpg"
-            className="hero-image"
-            alt="A quiet mountain landscape beneath a sky full of stars"
-          />
-          <div className="hero-overlay" />
-          <div className="hero-grain" />
+          <div className="hero-frost-line" aria-hidden="true" />
           <div className="hero-content">
             <span className="hero-eyebrow">
-              <span /> LESS NOISE. MORE DISCOVERY.
+              <span /> A DIFFERENT PERSPECTIVE
             </span>
             <h1>
-              A world of wonder.
-              <br />A space that’s <em>yours.</em>
+              Stay curious.
+              <br />
+              <em>See things differently.</em>
             </h1>
             <p>
-              Follow a little curiosity. Find your next obsession.
-              <br className="desktop-break" /> Good videos, without the
-              distractions.
+              A quieter corner of the internet.
+              <br className="desktop-break" /> Discover something worth your
+              time.
             </p>
             <div className="hero-actions">
               <button className="button button-primary" onClick={browse}>
-                Find your next favorite <ArrowUpRight size={19} />
+                Explore the feed <ArrowUpRight size={19} />
               </button>
-              <span className="hero-small-note">
-                <ShieldIcon /> Thoughtfully different.
-              </span>
+              <Link className="hero-secondary-action" to="/library/watch-later">
+                Your saved space <ArrowRight size={16} />
+              </Link>
             </div>
           </div>
-          <div className="hero-bottom-right">
-            <span className="hero-location">
-              <Globe2 size={13} /> A fresh perspective, every day
+          <div className="hero-visual">
+            <span className="hero-visual-label">
+              <Sparkles size={12} /> SOMETHING TO GET LOST IN
             </span>
-            <div className="hero-pages">
-              <span className="active" />
-              <span />
-              <span />
-            </div>
+            {loading ? (
+              <div
+                className="hero-feature hero-feature-loading glass"
+                aria-label="Loading featured video"
+                aria-busy="true"
+              >
+                <div className="skeleton hero-feature-image" />
+                <span className="skeleton hero-feature-loading-line" />
+                <span className="skeleton hero-feature-loading-line" />
+              </div>
+            ) : featured && !error ? (
+              <Link
+                className="hero-feature glass"
+                to={`/watch?v=${encodeURIComponent(featured.id)}`}
+                aria-label={`Featured video: ${featured.title}`}
+              >
+                <img
+                  className="hero-feature-image"
+                  src={featured.thumbnail}
+                  alt=""
+                />
+                <span className="hero-feature-shade" aria-hidden="true" />
+                <span className="hero-feature-topline">
+                  <span className="hero-feature-label">IN FOCUS</span>
+                  {(featured.live || featured.duration > 0) && (
+                    <span className="hero-feature-duration">
+                      {featured.live
+                        ? "LIVE"
+                        : formatDuration(featured.duration)}
+                    </span>
+                  )}
+                </span>
+                <span className="hero-feature-play">
+                  <Play size={23} fill="currentColor" />
+                </span>
+                <span className="hero-feature-copy">
+                  <span className="hero-feature-category">
+                    {featured.category || "DISCOVER SOMETHING NEW"}
+                  </span>
+                  <strong>{featured.title}</strong>
+                  <span className="hero-feature-author">
+                    {featured.author}
+                    <ArrowUpRight size={15} />
+                  </span>
+                </span>
+              </Link>
+            ) : (
+              <div
+                className="hero-feature hero-feature-empty glass"
+                aria-hidden="true"
+              >
+                <Play size={38} />
+                <span>A little room for possibility.</span>
+              </div>
+            )}
           </div>
-          <div className="hero-tag">
-            <Sparkles size={14} /> THE ART OF GETTING LOST
+          <div className="hero-footer">
+            <span className="hero-small-note">
+              <ShieldCheck size={13} /> YOUR CURIOSITY. YOUR SPACE.
+            </span>
+            <button className="hero-scroll-note" onClick={browse}>
+              SCROLL TO EXPLORE <ArrowDown size={13} />
+            </button>
           </div>
         </section>
       )}
@@ -191,8 +243,8 @@ export default function HomePage({ trending = false }: { trending?: boolean }) {
         <section className="continue-section">
           <div className="section-heading">
             <div>
-              <span className="eyebrow">RIGHT WHERE YOU LEFT OFF</span>
-              <h2>A little more of a good thing.</h2>
+              <span className="eyebrow">PICK UP THE THREAD</span>
+              <h2>Right where you left off.</h2>
             </div>
             <Link to="/library/history" className="text-link">
               View history <ArrowRight size={15} />
@@ -230,14 +282,14 @@ export default function HomePage({ trending = false }: { trending?: boolean }) {
           <div>
             <span className="eyebrow">
               {category === "All"
-                ? "THE GOOD STUFF, ALL IN ONE PLACE"
+                ? "FIND YOUR NEXT FASCINATION"
                 : `A LITTLE MORE ${category.toUpperCase()}`}
             </span>
             <h2>
               {category === "All"
                 ? trending
                   ? "On everyone’s radar."
-                  : "Your next rabbit hole."
+                  : "A little out of the ordinary."
                 : `A world of ${category.toLowerCase()}.`}
               <span className="heading-dot">.</span>
             </h2>
@@ -371,9 +423,12 @@ export default function HomePage({ trending = false }: { trending?: boolean }) {
             <Leaf size={26} />
           </div>
           <div>
-            <span className="eyebrow">A BREATH OF FRESH AIR</span>
-            <h3>Your time is yours. Make it a good watch.</h3>
-            <p>Save something for later. Come back when the moment’s right.</p>
+            <span className="eyebrow">ON YOUR OWN TERMS</span>
+            <h3>Good things can wait.</h3>
+            <p>
+              Collect the videos that catch your eye. Come back when you feel
+              like it.
+            </p>
           </div>
           <Link to="/library/watch-later" className="button button-secondary">
             Your watch later <ArrowUpRight size={16} />
@@ -381,20 +436,5 @@ export default function HomePage({ trending = false }: { trending?: boolean }) {
         </section>
       )}
     </div>
-  );
-}
-function ShieldIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-    >
-      <path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6z" />
-      <path d="m8 12 3 3 5-6" />
-    </svg>
   );
 }

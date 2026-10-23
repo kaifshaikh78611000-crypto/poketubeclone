@@ -1,3 +1,20 @@
+/* Translucent inner surfaces reveal the chrome scene behind the app. */
+.watch-description,
+.watch-comment-empty,
+.watch-queue {
+  background: linear-gradient(
+    145deg,
+    rgba(245, 248, 255, 0.075),
+    rgba(245, 248, 255, 0.018)
+  );
+  border: 1px solid var(--border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 18px 45px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(24px) saturate(125%);
+  -webkit-backdrop-filter: blur(24px) saturate(125%);
+}
+
 .watch-page {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 330px;
@@ -44,6 +61,7 @@
   backdrop-filter: blur(2px);
 }
 .watch-player-connect {
+  color: #f5f7fc;
   position: absolute;
   inset: 0;
   display: flex;
@@ -55,9 +73,9 @@
   gap: 12px;
 }
 .watch-preview-label {
-  font-size: 9px;
+  color: #e6ecf8;
+  font-size: 10px;
   letter-spacing: 2.2px;
-  color: #d6e6cf;
   position: absolute;
   top: 22px;
   left: 25px;
@@ -68,12 +86,14 @@
   width: 68px;
   display: grid;
   place-items: center;
-  border: 1px solid #e3ffc862;
+  border: 1px solid #ecf3ff62;
   border-radius: 50%;
-  background: #c3f789;
-  color: #182314;
+  background: linear-gradient(150deg, #f9fbff, #bdcbe8);
+  color: #18202f;
   cursor: pointer;
-  box-shadow: 0 0 45px #c3f78924;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 12px 35px rgba(0, 0, 0, 0.35);
   transition: transform 0.2s;
 }
 .watch-play-button svg {
@@ -88,13 +108,13 @@
   margin: 3px 0 0;
 }
 .watch-player-connect p {
-  font-size: 12px;
+  color: #d2d7e2;
+  font-size: 13px;
   line-height: 1.7;
-  color: #c4c7c3;
   margin: 0 0 4px;
 }
 .watch-player-connect .button {
-  font-size: 11px;
+  font-size: 12px;
   min-height: 34px;
 }
 .watch-player-toolbar {
@@ -104,8 +124,8 @@
   justify-content: space-between;
   gap: 10px;
   background: #0f1316;
-  color: #88918a;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 11px;
   min-height: 44px;
 }
 .watch-player-toolbar > div {
@@ -119,13 +139,13 @@
   min-height: 30px;
 }
 .watch-player-toolbar .icon-button[aria-pressed="true"] {
-  color: #c3f789;
-  background: #c3f78912;
+  color: var(--accent);
+  background: #dde8ff12;
 }
 .watch-quality select {
-  background: #1d2421;
+  color: #eef3ff;
+  background: #1b202c;
   border: 1px solid #ffffff14;
-  color: #d5dcd3;
   font: inherit;
   padding: 5px 7px;
   border-radius: 7px;
@@ -139,20 +159,20 @@
   gap: 12px;
 }
 .watch-title-row .eyebrow {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 1.5px;
-  color: #b6d9a1;
+  color: var(--accent);
 }
 .watch-original {
   display: flex;
   align-items: center;
   gap: 5px;
-  color: #8a938a;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 11px;
   text-decoration: none;
 }
 .watch-original:hover {
-  color: #c3f789;
+  color: var(--accent);
 }
 .watch-title {
   font-size: 25px;
@@ -165,15 +185,15 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  font-size: 11px;
-  color: #969f99;
+  font-size: 12px;
+  color: var(--muted);
 }
 .watch-demo-pill {
   padding: 3px 7px;
   border: 1px solid #ffffff14;
   border-radius: 5px;
-  font-size: 9px;
-  color: #a8b8a0;
+  font-size: 10px;
+  color: var(--muted);
   margin-left: 3px;
 }
 .watch-actions-row {
@@ -196,11 +216,11 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: linear-gradient(140deg, #9abb7c, #364a31);
-  color: #fff;
+  background: linear-gradient(140deg, #a9aebd, #424349);
+  color: #f4f7ff;
   text-decoration: none;
   flex-shrink: 0;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
 }
 .watch-author > div {
@@ -209,8 +229,8 @@
   gap: 4px;
 }
 .watch-author-name {
-  color: #e9eee7;
-  font-size: 12px;
+  color: var(--text);
+  font-size: 13px;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -218,15 +238,15 @@
   font-weight: 600;
 }
 .watch-author-name svg {
-  color: #a7bc9e;
+  color: var(--muted);
 }
 .watch-author > div > span {
-  font-size: 10px;
-  color: #8c978d;
+  font-size: 11px;
+  color: var(--muted);
 }
 .watch-subscribe {
   margin-left: 10px;
-  font-size: 10px !important;
+  font-size: 11px !important;
   min-height: 33px !important;
   padding: 8px 13px !important;
   gap: 5px !important;
@@ -237,7 +257,7 @@
   gap: 7px;
 }
 .watch-social-actions > .button {
-  font-size: 11px;
+  font-size: 12px;
   min-height: 34px;
   padding: 8px 11px;
   gap: 6px;
@@ -245,7 +265,7 @@
 .watch-reactions {
   display: flex;
   align-items: center;
-  border: 1px solid #ffffff10;
+  border: 1px solid var(--border);
   border-radius: 11px;
   background: #ffffff04;
   overflow: hidden;
@@ -255,13 +275,13 @@
   padding: 8px 10px;
   background: none;
   border: 0;
-  color: #bec6bc;
+  color: var(--text);
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 7px;
   font: inherit;
-  font-size: 11px;
+  font-size: 12px;
   transition: background 0.2s;
 }
 .watch-reactions button + button {
@@ -271,18 +291,18 @@
   background: #ffffff08;
 }
 .watch-reactions button.is-active {
-  color: #c3f789;
-  background: #c3f7890c;
+  color: var(--accent);
+  background: #dde8ff0c;
 }
 .watch-description {
   padding: 20px 22px;
   border-radius: 16px !important;
-  background: #ffffff05 !important;
+  background: var(--surface);
 }
 .watch-description-text {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.85;
-  color: #b7c0b8;
+  color: var(--text);
   white-space: pre-wrap;
   overflow: hidden;
   display: -webkit-box;
@@ -296,8 +316,8 @@
 .watch-description-toggle {
   border: 0;
   background: none;
-  color: #d9e7d1;
-  font-size: 11px;
+  color: var(--text);
+  font-size: 12px;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -331,7 +351,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  color: #9ea99b;
+  color: var(--muted);
   position: relative;
 }
 .watch-comment-sort select {
@@ -339,7 +359,7 @@
   background: transparent;
   color: inherit;
   font: inherit;
-  font-size: 11px;
+  font-size: 12px;
   appearance: none;
   outline: none;
   padding: 4px 22px 4px 0;
@@ -347,8 +367,8 @@
   max-width: 150px;
 }
 .watch-comment-sort select option {
-  background: #181d1a;
-  color: #ddd;
+  background: var(--bg);
+  color: var(--text);
 }
 .watch-comment-sort > svg {
   position: absolute;
@@ -361,31 +381,31 @@
   justify-content: center;
   gap: 8px;
   padding: 35px;
-  color: #9caa96;
-  font-size: 12px;
+  color: var(--muted);
+  font-size: 13px;
 }
 .watch-comment-empty {
   text-align: center;
   padding: 31px 18px;
-  color: #8f9d88;
+  color: var(--muted);
   border-radius: 16px !important;
 }
 .watch-comment-empty > svg {
-  color: #a8c798;
+  color: var(--accent);
 }
 .watch-comment-empty h3 {
   font-size: 14px;
-  color: #d4ded0;
+  color: var(--text);
   font-weight: 500;
   margin: 10px 0 6px;
 }
 .watch-comment-empty p {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.7;
   margin: 8px 0 0;
 }
 .watch-comment-empty .button {
-  font-size: 11px;
+  font-size: 12px;
   min-height: 33px;
   margin-top: 13px;
 }
@@ -405,12 +425,12 @@
   flex-shrink: 0;
   overflow: hidden;
   border-radius: 50%;
-  background: #263022;
+  background: var(--surface-hover);
   display: grid;
   place-items: center;
   font-size: 13px;
   text-decoration: none;
-  color: #ccdbbf;
+  color: var(--text);
 }
 .watch-comment-avatar img {
   height: 100%;
@@ -426,20 +446,20 @@
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
-  font-size: 10px;
+  font-size: 11px;
 }
 .watch-comment-byline a {
   font-weight: 600;
   text-decoration: none;
-  color: #dce6d6;
+  color: var(--text);
 }
 .watch-comment-byline > span {
-  color: #7a8974;
-  font-size: 9px;
+  color: var(--muted);
+  font-size: 10px;
 }
 .watch-comment-body p {
-  color: #b3c0ad;
-  font-size: 11px;
+  color: var(--text);
+  font-size: 12px;
   line-height: 1.8;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
@@ -449,8 +469,8 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  color: #829478;
-  font-size: 9px;
+  color: var(--muted);
+  font-size: 10px;
 }
 .watch-comment-foot > span {
   display: flex;
@@ -459,7 +479,7 @@
 }
 .watch-more-comments {
   margin-top: 24px !important;
-  font-size: 11px !important;
+  font-size: 12px !important;
 }
 .watch-related {
   min-width: 0;
@@ -468,9 +488,9 @@
   margin-bottom: 17px;
 }
 .watch-related .eyebrow {
-  font-size: 8px;
+  font-size: 9px;
   letter-spacing: 1.8px;
-  color: #8c9a83;
+  color: var(--muted);
 }
 .watch-related h2 {
   margin: 6px 0 0;
@@ -481,11 +501,11 @@
   width: 27px;
   border-radius: 9px;
   background: #ffffff06;
-  border: 1px solid #ffffff0d;
+  border: 1px solid var(--border);
   display: grid;
   place-items: center;
-  color: #98a78c;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 11px;
 }
 .watch-related-list {
   display: flex;
@@ -517,14 +537,14 @@
   text-align: center;
 }
 .watch-error > svg {
-  color: #c3f789;
+  color: var(--accent);
 }
 .watch-error h1 {
   font-size: 25px;
   letter-spacing: -0.7px;
 }
 .watch-error p {
-  color: #99a293;
+  color: var(--muted);
   font-size: 13px;
   max-width: 500px;
   line-height: 1.7;
@@ -553,9 +573,11 @@
   border-radius: 5px;
 }
 .watch-dialog {
-  color: #edf1e9;
-  background: linear-gradient(130deg, #222b22, #141b16) !important;
-  border: 1px solid #d7edbe29;
+  color: var(--text);
+  background: var(--glass);
+  backdrop-filter: blur(38px) saturate(135%);
+  -webkit-backdrop-filter: blur(38px) saturate(135%);
+  border: 1px solid var(--border);
   border-radius: 23px;
   padding: 27px;
   width: min(500px, calc(100vw - 36px));
@@ -576,9 +598,9 @@
   margin-bottom: 20px;
 }
 .watch-dialog-heading .eyebrow {
-  font-size: 8px;
+  font-size: 9px;
   letter-spacing: 1.8px;
-  color: #aac78f;
+  color: var(--text);
 }
 .watch-dialog-heading h2 {
   font-size: 23px;
@@ -593,7 +615,7 @@
 }
 .watch-save-option {
   width: 100%;
-  border: 1px solid #ffffff0d;
+  border: 1px solid var(--border);
   background: #ffffff03;
   padding: 15px;
   border-radius: 13px;
@@ -601,7 +623,7 @@
   display: flex;
   align-items: center;
   gap: 13px;
-  color: #c7d2c2;
+  color: var(--text);
   cursor: pointer;
   text-align: left;
   transition: background 0.2s;
@@ -610,20 +632,20 @@
   background: #ffffff08;
 }
 .watch-save-option.is-active {
-  background: #c3f78909;
-  border-color: #c3f78929;
-  color: #c3f789;
+  background: #dde8ff09;
+  border-color: #dde8ff29;
+  color: var(--accent);
 }
 .watch-save-option > span {
   flex: 1;
   display: flex;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 13px;
   gap: 4px;
 }
 .watch-save-option small {
-  font-size: 10px;
-  color: #89977f;
+  font-size: 11px;
+  color: var(--muted);
   font-weight: 400;
 }
 .watch-new-playlist {
@@ -631,8 +653,8 @@
 }
 .watch-new-playlist label {
   display: block;
-  font-size: 10px;
-  color: #9bab91;
+  font-size: 11px;
+  color: var(--muted);
   margin-bottom: 9px;
 }
 .watch-new-playlist > div,
@@ -645,43 +667,43 @@
   flex: 1;
   min-width: 0;
   outline: none;
-  color: #d9e5d0;
+  color: var(--text);
   background: #0002;
   border: 1px solid #ffffff17;
   border-radius: 10px;
   padding: 11px;
   font: inherit;
-  font-size: 12px;
+  font-size: 13px;
 }
 .watch-new-playlist input:focus,
 .watch-share input:focus {
-  border-color: #c3f78965;
+  border-color: #dde8ff65;
 }
 .watch-new-playlist .button,
 .watch-share .button {
-  font-size: 11px;
+  font-size: 12px;
   min-height: 37px;
 }
 .watch-share p {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.6;
-  color: #99aa91;
+  color: var(--muted);
   margin-bottom: 16px;
 }
 .watch-share > a {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: #adc29e;
-  font-size: 10px;
+  color: var(--text);
+  font-size: 11px;
   text-decoration: none;
   margin-top: 18px;
 }
 .watch-share > a:hover {
-  color: #c3f789;
+  color: var(--accent);
 }
 .watch-share input {
-  font-size: 10px;
+  font-size: 11px;
 }
 .spinning {
   animation: watch-spin 0.8s linear infinite;
@@ -718,6 +740,7 @@
     gap: 17px;
   }
   .watch-player-connect {
+    color: #f5f7fc;
     gap: 9px;
   }
   .watch-player-connect h2 {
@@ -757,20 +780,23 @@
     border-radius: 14px;
   }
   .watch-player-connect {
+    color: #f5f7fc;
     gap: 7px;
     padding: 12px;
   }
   .watch-preview-label {
+    color: #e6ecf8;
     top: 12px;
     left: 14px;
-    font-size: 7px;
+    font-size: 8px;
     letter-spacing: 1.5px;
   }
   .watch-player-connect h2 {
     font-size: 20px;
   }
   .watch-player-connect p {
-    font-size: 10px;
+    color: #d2d7e2;
+    font-size: 11px;
     line-height: 1.5;
   }
   .watch-play-button {
@@ -782,7 +808,7 @@
     height: 20px;
   }
   .watch-player-connect .button {
-    font-size: 9px;
+    font-size: 10px;
     min-height: 27px;
     padding: 6px 10px;
   }
@@ -798,7 +824,7 @@
     letter-spacing: -0.4px;
   }
   .watch-details-line {
-    font-size: 10px;
+    font-size: 11px;
     gap: 7px;
   }
   .watch-actions-row {
@@ -830,7 +856,7 @@
     border-radius: 14px !important;
   }
   .watch-description-text {
-    font-size: 11px;
+    font-size: 12px;
   }
   .watch-section-title h2 {
     font-size: 16px;
@@ -855,7 +881,7 @@
     font-size: 21px;
   }
   .watch-original {
-    font-size: 9px;
+    font-size: 10px;
   }
   .watch-loading-title {
     width: 85%;
@@ -886,7 +912,7 @@
 .watch-queue-icon {
   display: grid;
   place-items: center;
-  color: #a3c68f;
+  color: var(--text);
   flex-shrink: 0;
 }
 .watch-queue-copy {
@@ -897,18 +923,18 @@
   gap: 5px;
 }
 .watch-queue-copy > span {
-  font-size: 8px;
+  font-size: 9px;
   letter-spacing: 1.2px;
-  color: #8a9f7d;
+  color: var(--muted);
   font-weight: 600;
 }
 .watch-queue-copy > span > span {
-  color: #6f8067;
+  color: var(--muted);
 }
 .watch-queue-copy > a,
 .watch-queue-copy > button {
-  color: #ccd9c3;
-  font-size: 11px;
+  color: var(--text);
+  font-size: 12px;
   font-weight: 500;
   text-decoration: none;
   white-space: nowrap;
@@ -924,7 +950,7 @@
 }
 .watch-queue-copy > a:hover,
 .watch-queue-copy > button:hover {
-  color: #c3f789;
+  color: var(--accent);
 }
 .watch-queue-controls {
   display: flex;
@@ -952,12 +978,12 @@
     gap: 9px;
   }
   .watch-queue-copy > span {
-    font-size: 7px;
+    font-size: 8px;
     letter-spacing: 1px;
   }
   .watch-queue-copy > a,
   .watch-queue-copy > button {
-    font-size: 10px;
+    font-size: 11px;
   }
   .watch-queue-icon svg {
     width: 16px;
