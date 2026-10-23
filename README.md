@@ -26,6 +26,8 @@ Express serves the built SPA and API together on port **3001**, or the `PORT` en
 
 ## Connect a live video service
 
+See [Host your own Invidious API](docs/INVIDIOUS.md) for the production Docker, Companion, HTTPS, and app connection steps.
+
 Operate an Invidious instance, including its playback requirements, or use one you have permission to access. Follow the [official installation documentation](https://docs.invidious.io/installation/). PokeTube's official shared `invid-api.poketube.fun` service explicitly requires custom instances to use their own backend; this application rejects that shared hostname rather than bypassing its restrictions.
 
 **Insert API here: `.env`, setting `INVIDIOUS_API_URL`.** The local `.env` has been created with this value deliberately blank. The committed `.env.example` also includes the marker. On a fresh clone, create local configuration from the example:

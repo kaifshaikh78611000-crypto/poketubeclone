@@ -304,7 +304,10 @@ export function createApp(options: AppOptions = {}) {
         );
       return res.json(video);
     }
-    const raw = await upstream(`/videos/${encodeURIComponent(id)}`);
+    // Return URLs routed through this instance for browsers on other networks.
+    const raw = await upstream(`/videos/${encodeURIComponent(id)}`, {
+      local: "true",
+    });
     const video = normalizeVideoDetails(raw, backend);
     if (!video)
       throw new ApiError(

@@ -490,6 +490,14 @@ test("live API normalizes actual upstream responses and encodes search queries",
   )) as VideoDetails;
   assert.equal(details.source, "live");
   assert.equal(details.description, "Live upstream details");
+  const upstreamDetails = requested.find(
+    (url) => url.pathname === "/api/v1/videos/LXb3EKWsInQ",
+  );
+  assert.equal(
+    upstreamDetails?.searchParams.get("local"),
+    "true",
+    "native playback must request streams proxied through the configured instance",
+  );
 
   const playlist = (await fetch(`${base}/api/playlists/PLsample?page=2`).then(
     (response) => response.json(),
